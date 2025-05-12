@@ -55,6 +55,14 @@ public class RestUtil {
         assertThat("Mismatch in JSON field: " + jsonPath, actual, equalTo(expectedValue));
     }
 
+    // Overloaded method to validate multiple JSON fields
+    public static void verifyJsonFields(Response response, Map<String, Object> expectedFields) {
+        for (Map.Entry<String, Object> entry : expectedFields.entrySet()) {
+            Object actual = response.jsonPath().get(entry.getKey());
+            assertThat("Mismatch in JSON field: " + entry.getKey(), actual, equalTo(entry.getValue()));
+        }
+    }
+
     public static void verifyJsonFieldExists(Response response, String jsonPath) {
         assertThat("Expected JSON field to exist: " + jsonPath,
                 response.jsonPath().get(jsonPath), is(notNullValue()));
