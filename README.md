@@ -46,17 +46,17 @@ bdd-service-automation/
 │   │   │       │   └── ConfigManager.java   # Get environment specific configurations
 │   │   │       │   └── ReportGenerator.java # Custom code for fancy report generation
 │   │   │       │   └── RestUtil.java        # Common methods for API actions
-│   │   │       └── testrunner/          # Cucumber TestNG test runner
+│   │   │       └── testrunner/              # Cucumber TestNG test runner
 │   │   │       │   └── TestRunner.java 
 │   │   └── resources/
-│   │       └── features/                # Gherkin feature files
+│   │       └── features/                    # Gherkin feature files
 │   │           └── create_user.feature
-│   │       └── config.properties        # Environment-specific configurations
+│   │       └── config.properties            # Environment-specific configurations
 ├── reports/
-│   └── cucumber-html-reports/           # Generated HTML and JSON reports
-└── README.md
-└── .gitignore
-└── testng.xml
+│   └── cucumber-html-reports/               # Generated HTML and JSON reports
+└── README.md                                # Documentation for the project
+└── .gitignore                               # Ignore not needed files to remote repository
+└── testng.xml                               # Defines test cases to run
 ```
 
 ---
