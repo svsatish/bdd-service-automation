@@ -181,6 +181,8 @@ Reports will be generated under:
 
 These can be plugged into `cucumber-reporting` for advanced dashboards.
 
+![docs/images/report.png](docs/images/report.png)
+
 ---
 
 # 💡 Design Patterns Used
