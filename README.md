@@ -182,3 +182,45 @@ Reports will be generated under:
 These can be plugged into `cucumber-reporting` for advanced dashboards.
 
 ---
+
+# 💡 Design Patterns Used
+
+This section outlines the key software design patterns implemented in the BDD API test automation framework and their purposes.
+
+## 1. Builder Pattern
+- **Used In**: POJOs under `model` package.
+- **Purpose**: Simplifies construction of complex request payloads using chained methods.
+```java
+User user = User.builder()
+                .id(101)
+                .username("apiuser")
+                .build();
+```
+
+## 2. Factory Pattern
+- **Used In**: `UserFactory` (custom utility if created).
+- **Purpose**: Centralizes object creation logic (e.g., dynamic users with random or test-specific data).
+
+## 3. Singleton Pattern
+- **Used In**: `ConfigManager` for reading properties file.
+- **Purpose**: Ensures that only one instance of the configuration reader exists and is reused across the framework.
+
+## 4. Strategy Pattern
+- **Used In**: `AssertionUtils` class.
+- **Purpose**: Allows switching between different types of assertions (e.g., field match, substring, regex) with minimal code change.
+
+## 5. Page Object Model Equivalent for APIs
+- **Used In**: `service` package (e.g., `UserService.java`).
+- **Purpose**: Abstracts API call details and organizes them into logical classes like service objects.
+
+## 6. DRY & Separation of Concerns
+- **Used Throughout**: Utilities, models, services, and test logic are in their own packages.
+- **Purpose**: Avoids duplication and improves maintainability and readability of the code.
+
+## 7. Data-Driven Testing
+- **Used In**: `.feature` files using Cucumber DataTables.
+- **Purpose**: Allows running the same scenario with multiple data sets.
+
+## 8. Template Method Pattern
+- **Used In**: `TestRunner` class extending `AbstractTestNGCucumberTests`.
+- **Purpose**: Reuses the execution logic defined in the parent class while allowing specific overrides.
